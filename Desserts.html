@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Desserts Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(120deg, #ffbd5c 0%, #ff9e1b 100%);
+      font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .main-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 32px;
+      max-width: 1200px;
+      margin: 48px auto 0 auto;
+    }
+    .menu-container {
+      width: 680px;
+      background: #ff9400;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 38px 38px 28px 38px;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-title {
+      font-family: 'Chewy', cursive;
+      color: #fff;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      display: inline-block;
+      background: #c84a04;
+      border-radius: 16px;
+      padding: 10px 40px;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.10);
+      position: relative;
+    }
+    .menu-title:before, .menu-title:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 46px;
+      height: 9px;
+      border-radius: 40px;
+      background: #ff5600;
+    }
+    .menu-title:before {
+      left: -52px;
+      transform: translateY(-50%) rotate(-9deg);
+    }
+    .menu-title:after {
+      right: -52px;
+      transform: translateY(-50%) rotate(9deg);
+    }
+
+    .dessert-list {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 2.1fr 0.8fr;
+      gap: 0px 6px;
+      background: #ffb13a1c;
+      border-radius: 14px;
+    }
+    .dessert-header, .dessert-item {
+      display: contents;
+    }
+    .dessert-header-cell {
+      font-family: 'Chewy', cursive;
+      font-size: 1.22rem;
+      color: #fff;
+      background: #ff5600;
+      padding: 8px 0 8px 12px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-align: left;
+    }
+    .dessert-header-cell:nth-child(2) {
+      text-align: center;
+      border-top-right-radius: 10px;
+    }
+    .dessert-name {
+      font-family: 'Chewy', cursive;
+      color: #5a2a07;
+      font-size: 1.14rem;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .dessert-label {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 0.98rem;
+      font-weight: bold;
+      margin-left: 7px;
+      padding: 2px 10px;
+      border-radius: 8px;
+    }
+    .must-try {
+      background: #ffe65d;
+      color: #dc950b;
+    }
+    .best-seller {
+      background: #ffc083;
+      color: #fa7b00;
+    }
+    .dessert-desc {
+      color: #fffbe6;
+      font-size: 0.98rem;
+      margin-top: 2px;
+    }
+    .dessert-price {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .dessert-item-row {
+      border-bottom: 1.4px dashed #fff9db;
+      background: none;
+      padding: 13px 0 13px 0;
+      align-items: flex-start;
+      display: contents;
+    }
+    .dessert-item-row:last-child {
+      border-bottom: none;
+    }
+
+    /* Make the white box hug the image closely */
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff2e0;
+      border-radius: 24px;
+      padding: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      width: fit-content;
+      min-width: 0;
+      min-height: 0;
+      margin-top: 14px;
+    }
+    .dessert-img {
+      display: block;
+      width: 245px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.17);
+      margin: 0;
+      background: #fff;
+    }
+    @media (max-width: 1100px) {
+      .main-flex { flex-direction: column; align-items: center; }
+      .menu-container, .right-panel { width: 96vw; }
+      .dessert-img { width: 62vw; }
+      .right-panel { width: fit-content; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-flex">
+    <!-- Left: Desserts List -->
+    <div class="menu-container">
+      <div class="menu-title">Desserts</div>
+      <div class="dessert-list">
+        <!-- Header Row -->
+        <div class="dessert-header">
+          <div class="dessert-header-cell">Dessert Name</div>
+          <div class="dessert-header-cell">Price</div>
+        </div>
+        <!-- Dessert Row 1 -->
+        <div class="dessert-item dessert-item-row">
+          <div>
+            <div class="dessert-name">Vanilla Ice-Cream Scoop</div>
+          </div>
+          <div class="dessert-price">29</div>
+        </div>
+        <!-- Dessert Row 2 -->
+        <div class="dessert-item dessert-item-row">
+          <div>
+            <div class="dessert-name">Chocolate Ice-Cream Scoop</div>
+          </div>
+          <div class="dessert-price">39</div>
+        </div>
+        <!-- Dessert Row 3 -->
+        <div class="dessert-item dessert-item-row">
+          <div>
+            <div class="dessert-name">
+              Sizzling Brownie 
+              <span class="dessert-label must-try">Must Try</span>
+            </div>
+          </div>
+          <div class="dessert-price">149</div>
+        </div>
+        <!-- Dessert Row 4 -->
+        <div class="dessert-item dessert-item-row">
+          <div>
+            <div class="dessert-name">
+              Special Kulhad Chocolaty Mud Pie 
+              <span class="dessert-label best-seller">Best Seller</span>
+            </div>
+          </div>
+          <div class="dessert-price">199</div>
+        </div>
+      </div>
+    </div>
+    <!-- Right: Image Panel -->
+    <div class="right-panel">
+      <!-- Replace the src below with your actual dessert PNG path -->
+      <img class="dessert-img" src="Desserts.png" alt="Sizzling Brownie" />
+    </div>
+  </div>
+</body>
+</html>

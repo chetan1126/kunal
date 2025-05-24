@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Menu Grid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #ff9830;
+      margin: 0;
+      min-height: 100vh;
+    }
+    .item-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 22px;
+      max-width: 580px;
+      margin: 25px auto;
+      padding: 8px;
+    }
+    .item-box {
+      border: 4px solid #000;
+      background: #fff3e5;
+      color: #222;
+      font-family: Arial, sans-serif;
+      font-size: 1.25rem;
+      text-align: center;
+      padding: 18px 0;
+      font-weight: 500;
+      border-radius: 9px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 65px;
+      min-width: 0;
+      word-break: break-word;
+    }
+    .item-box:hover {
+      box-shadow: 0 4px 20px #2222;
+      transform: scale(1.03);
+    }
+    .item-box:visited,
+    .item-box:link {
+      color: #222;
+    }
+    @media (max-width: 800px) {
+      .item-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        max-width: 96vw;
+      }
+      .item-box { font-size: 1.05rem; padding: 13px 0; border-width: 3px; }
+    }
+    @media (max-width: 500px) {
+      .item-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        max-width: 99vw;
+      }
+      .item-box { font-size: 1rem; padding: 10px 0; border-width: 2px; border-radius: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="item-grid">
+    <a href="pizza.html" class="item-box">Pizza</a>
+    <a href="pasta.html" class="item-box">Pasta</a>
+    <a href="wraps.html" class="item-box">Wrap</a>
+    <a href="drink.html" class="item-box">Drink</a>
+    <a href="burger.html" class="item-box">Burger</a>
+    <a href="momo.html" class="item-box">Momo</a>
+    <a href="sandwiches.html" class="item-box">Sandwich</a>
+    <a href="garlic_bread_naccos_maggi.html" class="item-box">Garlic Bread Nachos Maggi</a>
+    <a href="fries.html" class="item-box">Fries</a>
+    <a href="desserts.html" class="item-box">Dessert</a>
+  </div>
+</body>
+</html>

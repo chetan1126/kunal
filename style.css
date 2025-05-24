@@ -1,0 +1,53 @@
+/* ========== RESPONSIVE DESIGN FOR MOBILE ========== */
+@media (max-width: 768px) {
+
+  .brand-food-lovers {
+    font-size: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  .manage {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .manage-box {
+    width: 90%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+  }
+
+  .manage-box .text {
+    font-size: 1rem;
+  }
+
+  .zorko {
+    font-size: 2.5rem;
+  }
+
+  .section-head {
+    font-size: 1.25rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .welcome, .desc {
+    font-size: 1rem;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .head {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  .zorko-name {
+    font-size: 2rem;
+  }
+}

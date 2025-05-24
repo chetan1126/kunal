@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beverages Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffbd5c 0%, #ff9e1b 100%);
+      font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .main-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 28px;
+      max-width: 1100px;
+      margin: 48px auto 0 auto;
+    }
+    .menu-container {
+      width: 650px;
+      background: #ff9400;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 32px 36px 16px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .section-title {
+      font-family: 'Chewy', cursive;
+      color: #fff;
+      font-size: 2.15rem;
+      letter-spacing: 2px;
+      background: #ff5600;
+      border-radius: 12px;
+      display: inline-block;
+      padding: 4px 28px;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.11);
+      margin-bottom: 9px;
+      margin-top: 23px;
+    }
+    .section-title:first-child { margin-top: 0; }
+    .item-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1.2px dashed #fff9db;
+      padding: 8px 0 3px 0;
+    }
+    .item-row:last-child { border-bottom: none; }
+    .item-details {
+      flex: 2;
+    }
+    .item-name {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 1.2rem;
+      color: #482d06;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 2px;
+    }
+    .item-desc {
+      color: #fffbe6;
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+    .price {
+      color: #2d2202;
+      font-size: 1.12rem;
+      font-weight: bold;
+      min-width: 48px;
+      text-align: right;
+      margin-top: 2px;
+    }
+    .plus-addon {
+      color: #fff;
+      background: #ff5600;
+      border-radius: 6px;
+      padding: 2px 9px;
+      font-size: 0.98rem;
+      margin-left: 8px;
+    }
+    .with-addon {
+      font-size: 0.92rem;
+      background: #ffe7bc;
+      color: #a85e00;
+      border-radius: 6px;
+      font-family: 'Roboto', Arial, sans-serif;
+      padding: 2px 8px;
+      margin-left: 14px;
+      margin-top: 5px;
+      font-weight: 600;
+      border: 1.2px solid #ad7a11;
+      display: inline-block;
+    }
+    .offer-box {
+      margin-top: 13px;
+      color: #482d06;
+      background: #fff3cc;
+      border: 2.2px solid #ff5600;
+      border-radius: 7px;
+      padding: 7px 14px;
+      font-weight: bold;
+      font-size: 1.09rem;
+      display: inline-block;
+    }
+    .highlight-row {
+      border: 2.1px solid #482d06;
+      border-radius: 9px;
+      padding: 5px 0 5px 0 !important;
+      margin-top: 7px;
+      margin-bottom: 4px;
+      background: #ffb13a2c;
+    }
+    .best-seller {
+      font-size: 1rem;
+      color: #ffa500;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .must-try {
+      font-size: 1rem;
+      color: #1fc077;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .chili {
+      font-size: 1.05rem;
+      color: #e03a00;
+      margin-left: 5px;
+    }
+    .star {
+      color: #ffa500;
+      font-size: 1.1rem;
+      margin-left: 5px;
+    }
+    /* Images */
+    .right-panel {
+      width: 290px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 6px;
+      background: #fff2e0;
+      border-radius: 24px;
+      padding: 22px 8px 18px 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      min-height: 780px;
+      position: relative;
+    }
+    .img-coffee {
+      width: 135px;
+      border-radius: 17px;
+      margin-bottom: 32px;
+      margin-top: 0;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    .img-mojito {
+      width: 170px;
+      border-radius: 16px;
+      margin-bottom: 35px;
+      margin-top: 18px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    .img-milkshake {
+      width: 115px;
+      border-radius: 14px;
+      margin-bottom: 36px;
+      margin-top: 14px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    .img-hot {
+      width: 75px;
+      border-radius: 9px;
+      background: #fff;
+      margin-top: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    @media (max-width: 900px) {
+      .main-flex { flex-direction: column; align-items: center; }
+      .menu-container, .right-panel { width: 96vw; }
+      .img-coffee, .img-mojito, .img-milkshake, .img-hot { width: 40vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-flex">
+    <div class="menu-container">
+      <!-- Cold Coffee -->
+      <div class="section-title">Cold Coffee</div>
+      <div class="with-addon" style="float:right;">With Chocolate Ice-cream</div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Premium Cold Coffee <span class="best-seller">Best Seller</span></div>
+        </div>
+        <div class="price">49 <span class="plus-addon">+25</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Strong Cold Coffee</div>
+        </div>
+        <div class="price">59 <span class="plus-addon">+25</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Mocha Cold Coffee <span class="must-try">Must Try</span></div>
+        </div>
+        <div class="price">79 <span class="plus-addon">+25</span></div>
+      </div>
+
+      <!-- Mojito -->
+      <div class="section-title">Mojito</div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Surprise Mojito <span class="best-seller">Best Seller</span></div>
+        </div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Spicy Devil Mojito <span class="chili">🌶️</span></div>
+        </div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Strawberry Mojito</div></div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Tangy Mango Mojito</div></div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Pineapple Punch Mojito</div></div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Mary Litchi Mojito</div></div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Mint Mojito <span class="star">★</span></div></div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Orange Cindrella Mojito</div></div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Blue Heaven Mojito <span class="star">★</span></div></div>
+        <div class="price">49</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Rose Petal Mojito <span class="must-try">Must Try</span></div></div>
+        <div class="price">69</div>
+      </div>
+      <div class="offer-box">Add Float @30/- Only / Add Injector @30/- Only</div>
+      
+
+      <!-- Milk Shakes -->
+       
+       <div class="item-row"></div>
+      <div class="section-title"> Milk Shakes</div>
+      
+        <div class="item-details"></div>
+      <div class="with-addon" style="float:right;">With Ice-Cream Scoop</div>
+
+      <div class="item-row highlight-row">
+        <div class="item-details">
+          <div class="item-name">Surti Cold Coco <span class="best-seller">Best Seller</span></div>
+          <div class="item-row"></div>
+        </div>
+        <div class="price">79 <span class="plus-addon">+25</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Rose Delight Shake</div></div>
+        <div class="price">79 <span class="plus-addon">+25</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Strawberry Shake</div></div>
+        <div class="price">79 <span class="plus-addon">+25</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Oreo Chocolate Shake</div></div>
+        <div class="price">99 <span class="plus-addon">+25</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">KitKat Chocolate Shake</div></div>
+        <div class="price">109 <span class="plus-addon">+25</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Brownie Blast Shake <span class="must-try">Must Try</span></div></div>
+        <div class="price">119 <span class="plus-addon">+25</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Nutella Shake</div></div>
+        <div class="price">139 <span class="plus-addon">+25</span></div>
+      </div>
+
+      <!-- Hot Section -->
+      <div class="section-title" style="margin-bottom:0;">Hot</div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Masala Chai</div></div>
+        <div class="price">19</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Hot Coffee</div></div>
+        <div class="price">29</div>
+      </div>
+      <div class="item-row">
+        <div class="item-details"><div class="item-name">Hot Chocolate <span class="best-seller">Best Seller</span></div></div>
+        <div class="price">39</div>
+      </div>
+    </div>
+   <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .right-panel img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      margin-bottom: 40px; /* Space between images */
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    }
+    .right-panel img:last-child {
+      margin-bottom: 0; /* Remove extra space after last image */
+    }
+  </style>
+</head>
+<body>
+  <div class="right-panel">
+    <img class="img-coffee" src="coffee.png" alt="Cold Coffee" />
+    <img class="img-mojito" src="mojito.png" alt="Mojito" />
+    <img class="img-milkshake" src="Milk Shakes.png" alt="Milkshake" />
+    <img class="img-hot" src="hot.png" alt="Hot" />
+  </div>
+</body>
+</html>

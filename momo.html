@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Momo's & Kulhad Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffbd5c 0%, #ff9e1b 100%);
+      font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .main-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 28px;
+      max-width: 1200px;
+      margin: 48px auto 0 auto;
+    }
+    .menu-container {
+      width: 700px;
+      background: #ff9400;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 32px 40px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-title {
+      font-family: 'Chewy', cursive;
+      color: #fff;
+      font-size: 2.7rem;
+      letter-spacing: 2px;
+      margin-bottom: 4px;
+      display: inline-block;
+      background: #ff5600;
+      border-radius: 12px;
+      padding: 5px 26px;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.11);
+    }
+    .subsection-title {
+      font-family: 'Chewy', cursive;
+      color: #fff;
+      font-size: 2.1rem;
+      background: #ff5600;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 3px 16px;
+      margin: 26px 0 6px 0;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.11);
+      letter-spacing: 2px;
+    }
+    .momo-list, .kulhad-list {
+      margin-top: 6px;
+    }
+    .item-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1.2px dashed #fff9db;
+      padding: 8px 0;
+    }
+    .item-row:last-child {
+      border-bottom: none;
+    }
+    .item-details {
+      flex: 1.9;
+    }
+    .item-name {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 1.33rem;
+      color: #482d06;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 2px;
+    }
+    .item-desc {
+      color: #fffbe6;
+      font-size: 0.97rem;
+      margin-bottom: 2px;
+    }
+    .price {
+      flex: 0.2;
+      color: #2d2202;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 2px;
+      min-width: 54px;
+    }
+    .best-seller {
+      font-size: 1rem;
+      color: #ffa500;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .must-try {
+      font-size: 1rem;
+      color: #1fc077;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .j-veg {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .right-panel {
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 14px;
+      background: #fff2e0;
+      border-radius: 24px;
+      padding: 28px 18px 22px 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      min-height: 500px;
+      position: relative;
+    }
+    .img-momo {
+      width: 215px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    .img-kulhad {
+      width: 180px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    @media (max-width: 1100px) {
+      .main-flex { flex-direction: column; align-items: center; }
+      .menu-container, .right-panel { width: 95vw; }
+      .img-momo, .img-kulhad { width: 60vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-flex">
+    <div class="menu-container">
+      <div class="menu-title">Momo's <span style="font-size:1.1rem; font-family:'Roboto'; color:#fff;">(6 pieces)</span></div>
+      <div class="momo-list">
+        <div class="item-row">
+          <div class="item-details">
+            <div class="item-name">Steam Momos</div>
+            <div class="item-desc">Spiced with ginger, garlic and other spices.</div>
+          </div>
+          <div class="price">89</div>
+        </div>
+        <div class="item-row">
+          <div class="item-details">
+            <div class="item-name">Fried Momos</div>
+            <div class="item-desc">Fried momos served with a dip.</div>
+          </div>
+          <div class="price">89</div>
+        </div>
+        <div class="item-row">
+          <div class="item-details">
+            <div class="item-name">Cheese Melting Gravy Momos <span class="best-seller">Best Seller</span></div>
+            <div class="item-desc">A delightful fusion of traditional Tibetan dumplings with rich, cheesy twist along with special sauces.</div>
+          </div>
+          <div class="price">159</div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Kulhad</div>
+      <div class="kulhad-list">
+        <div class="item-row">
+          <div class="item-details">
+            <div class="item-name">Cheese Volcano Kulhad Momos</div>
+            <div class="item-desc">Fried momos tossed in special creamy sauces stuffed in kulhad, topped with mozzarella cheese & baked.</div>
+          </div>
+          <div class="price">139</div>
+        </div>
+        <div class="item-row">
+          <div class="item-details">
+            <div class="item-name">Cheese Loaded Kulhad Pizza <span class="must-try">Must Try</span>
+              <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" />
+            </div>
+            <div class="item-desc">Fusion preparation of pan tossed pizza ingredients loaded in kulhad, covered with mozzarella cheese and baked.</div>
+          </div>
+          <div class="price">149</div>
+        </div>
+        <div class="item-row">
+          <div class="item-details">
+            <div class="item-name">Cheese Chatori Kulhad Maggi <span class="best-seller">Best Seller</span></div>
+            <div class="item-desc">A burst of chatpati Maggi baked in a kulhad loaded with mozzarella cheese.</div>
+          </div>
+          <div class="price">149</div>
+        </div>
+      </div>
+    </div>
+    <!-- Right panel with images -->
+    <div class="right-panel">
+      <img class="img-momo" src="momo.png" alt="Momos" />
+      <img class="img-kulhad" src="kulad.png" alt="Kulhad" />
+    </div>
+  </div>
+</body>
+</html>

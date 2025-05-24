@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pasta Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffbd5c 0%, #ff9e1b 100%);
+      font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .main-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 28px;
+      max-width: 1100px;
+      margin: 48px auto 0 auto;
+    }
+    .menu-container {
+      width: 700px;
+      background: #ff9400;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 32px 40px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-title {
+      font-family: 'Chewy', cursive;
+      color: #fff;
+      font-size: 2.7rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+      display: inline-block;
+      background: #ff5600;
+      border-radius: 12px;
+      padding: 8px 26px;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.11);
+    }
+    .baked-label {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 1.1rem;
+      background: #ffe0a5;
+      color: #482d06;
+      border-radius: 7px;
+      padding: 2px 13px;
+      font-weight: 700;
+      position: absolute;
+      top: 34px;
+      right: 120px;
+      border: 2px solid #482d06;
+    }
+    .pasta-list {
+      margin-top: 22px;
+    }
+    .pasta-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1.2px dashed #fff9db;
+      padding: 8px 0 2px 0;
+      position: relative;
+    }
+    .pasta-row:last-child { border-bottom: none; }
+    .pasta-details {
+      flex: 2;
+      margin-right: 12px;
+    }
+    .pasta-name {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 1.33rem;
+      color: #482d06;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 2px;
+    }
+    .pasta-desc {
+      color: #fffbe6;
+      font-size: 0.97rem;
+      margin-bottom: 2px;
+    }
+    .pasta-prices {
+      flex: 0.35;
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      font-weight: bold;
+      font-size: 1.3rem;
+      color: #2d2202;
+      justify-content: flex-end;
+      min-width: 120px;
+    }
+    .highlight-row {
+      border: 2.2px solid #482d06;
+      border-radius: 9px;
+      padding: 5px 0 5px 0 !important;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      background: #ffb13a2c;
+    }
+    .best-seller {
+      font-size: 1rem;
+      color: #ffa500;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .must-try {
+      font-size: 1rem;
+      color: #1fc077;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .j-veg {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .sauce-type {
+      font-size: 1.01rem;
+      color: #fff;
+      background: #ef8c00;
+      border-radius: 7px;
+      padding: 2px 11px;
+      font-family: 'Chewy', cursive;
+      margin-left: 10px;
+      margin-right: 4px;
+    }
+    .red-sauce { background: #d12c19; }
+    .white-sauce { background: #fcf7c8; color: #b7860b;}
+    .pink-sauce { background: #ffb0bb; color: #c23064;}
+    .right-panel {
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 14px;
+      background: #fff2e0;
+      border-radius: 24px;
+      padding: 28px 18px 22px 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      min-height: 340px;
+      position: relative;
+      justify-content: flex-start;
+    }
+    .pasta-img {
+      width: 260px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    @media (max-width: 1100px) {
+      .main-flex { flex-direction: column; align-items: center; }
+      .menu-container, .right-panel { width: 95vw; }
+      .pasta-img { width: 65vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-flex">
+    <div class="menu-container">
+      <div class="menu-title">Pasta</div>
+      <span class="baked-label">Baked</span>
+      <div class="pasta-list">
+        <div class="pasta-row">
+          <div class="pasta-details">
+            <div class="pasta-name">Alfredo <span class="white-sauce sauce-type">White Sauce</span> <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" /></div>
+            <div class="pasta-desc">Penne tossed with creamy cheesy white sauce with veggies.</div>
+          </div>
+          <div class="pasta-prices">
+            <span>139</span> <span>169</span>
+          </div>
+        </div>
+        <div class="pasta-row">
+          <div class="pasta-details">
+            <div class="pasta-name">Arrabbiata <span class="red-sauce sauce-type">Red Sauce</span> <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" /></div>
+            <div class="pasta-desc">Penne tossed in tomato sauce infused with special spices, veggies with punch of chilly flakes.</div>
+          </div>
+          <div class="pasta-prices">
+            <span>139</span> <span>169</span>
+          </div>
+        </div>
+        <div class="pasta-row">
+          <div class="pasta-details">
+            <div class="pasta-name">Ala Rosey <span class="pink-sauce sauce-type">Pink Sauce</span> <span class="best-seller">Best Seller</span> <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" /></div>
+            <div class="pasta-desc">Pasta infused in a cocktail sauce which is a combination of red and white sauce. The perfect blend of flavors with creamy textured sauce.</div>
+          </div>
+          <div class="pasta-prices">
+            <span>139</span> <span>169</span>
+          </div>
+        </div>
+        <div class="pasta-row">
+          <div class="pasta-details">
+            <div class="pasta-name">Peri Peri Pasta <span class="must-try">★</span></div>
+            <div class="pasta-desc">Penne pasta tossed in cheesy & creamy fusion peri peri sauce along with golden corn and Italian herbs.</div>
+          </div>
+          <div class="pasta-prices">
+            <span>139</span> <span>169</span>
+          </div>
+        </div>
+        <div class="pasta-row highlight-row">
+          <div class="pasta-details">
+            <div class="pasta-name">Dumbell Dore <span class="must-try">Must Try</span> <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" /></div>
+            <div class="pasta-desc">Tortilla wrapped with pasta, jalapeno & secret sauce, fried and served with drizzled creamy signature sauce.</div>
+          </div>
+          <div class="pasta-prices">
+            <span>159</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right panel with pasta image -->
+    <div class="right-panel">
+      <img class="pasta-img" src="pasta.png" alt="Pasta" />
+    </div>
+  </div>
+</body>
+</html>

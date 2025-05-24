@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pizza Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(120deg, #ffbd5c 0%, #ff9e1b 100%);
+      font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .main-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 32px;
+      max-width: 1200px;
+      margin: 48px auto 0 auto;
+    }
+    .menu-container {
+      width: 680px;
+      background: #ff9400;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 38px 38px 28px 38px;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-title {
+      font-family: 'Chewy', cursive;
+      color: #fff;
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      display: inline-block;
+      background: #c84a04;
+      border-radius: 16px;
+      padding: 10px 40px;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.10);
+      position: relative;
+    }
+    .menu-title:before, .menu-title:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 46px;
+      height: 9px;
+      border-radius: 40px;
+      background: #ff5600;
+    }
+    .menu-title:before {
+      left: -52px;
+      transform: translateY(-50%) rotate(-9deg);
+    }
+    .menu-title:after {
+      right: -52px;
+      transform: translateY(-50%) rotate(9deg);
+    }
+
+    .add-cheese-label {
+      font-size: 1.08rem;
+      margin-bottom: 4px;
+      float: right;
+      color:#482d06;
+      font-family: 'Chewy', cursive;
+      margin-top: -12px;
+      margin-right: 8px;
+    }
+    .pizza-list {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: 2.2fr 0.8fr 1fr;
+      gap: 0px 8px;
+      background: #ffb13a1c;
+      border-radius: 14px;
+    }
+    .pizza-header, .pizza-item {
+      display: contents;
+    }
+    .header-cell {
+      font-family: 'Chewy', cursive;
+      font-size: 1.22rem;
+      color: #fff;
+      background: #ff5600;
+      padding: 8px 0 8px 12px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-align: left;
+    }
+    .header-cell:nth-child(2), .header-cell:nth-child(3) {
+      text-align: center;
+      border-radius: 0;
+    }
+    .header-cell:last-child {
+      border-top-right-radius: 10px;
+    }
+    .pizza-name {
+      font-family: 'Chewy', cursive;
+      color: #482d06;
+      font-size: 1.13rem;
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .pizza-desc {
+      color: #fffbe6;
+      font-size: 0.97rem;
+      margin-top: 2px;
+    }
+    .price, .cheese-add {
+      color: #fff;
+      font-size: 1.18rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cheese-add {
+      color: #fff;
+      font-size: 1.02rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Removed background, border-radius, and padding for plain text */
+    }
+    .pizza-item-row {
+      border-bottom: 1.4px dashed #fff9db;
+      background: none;
+      padding: 13px 0 13px 0;
+      align-items: flex-start;
+      display: contents;
+    }
+    .pizza-item-row:last-child {
+      border-bottom: none;
+    }
+    .must-try { font-size: 1.1rem; color: #1fc077; margin-left: 8px;}
+    .best-seller { font-size: 1rem; color: #ffa500; margin-left: 8px;}
+    .kids-special { font-size: 1rem; color: #6edaff; margin-left: 8px;}
+    .thin-pizza { font-size: 1rem; color: #ffd700; margin-left: 8px;}
+    .j-veg {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .chili {
+      font-size: 1.13rem;
+      color: #e03a00;
+      margin-left: 5px;
+    }
+    .bottom-offers {
+      margin-top: 28px;
+      color: #fffbe6;
+      font-size: 1.11rem;
+      background: #ff5600;
+      border-radius: 10px;
+      padding: 8px 18px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    /* --- RIGHT PANEL (Image box) --- */
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff2e0;
+      border-radius: 24px;
+      padding: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      width: fit-content;
+      min-width: 0;
+      min-height: 0;
+      margin-top: 14px;
+    }
+    .pizza-img-top,
+    .pizza-img-bottom {
+      display: block;
+      width: 245px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      margin: 0;
+      background: #fff;
+    }
+    .pizza-img-top {
+      margin-bottom: 14px;
+    }
+    .pizza-img-bottom {
+      margin-top: 10px;
+    }
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .main-flex { flex-direction: column; align-items: center; }
+      .menu-container, .right-panel { width: 96vw; }
+      .pizza-img-top, .pizza-img-bottom { width: 62vw; }
+      .right-panel { width: fit-content; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-flex">
+    <!-- Left: Pizza List -->
+    <div class="menu-container">
+      <div class="menu-title">Pizza</div>
+      <div class="add-cheese-label">Add Double Cheese</div>
+      <div class="pizza-list">
+        <!-- Header Row -->
+        <div class="pizza-header">
+          <div class="header-cell">Name & Specification</div>
+          <div class="header-cell">Price</div>
+          <div class="header-cell">+ Double Cheese</div>
+        </div>
+        <!-- Pizza Rows -->
+        <div class="pizza-item pizza-item-row">
+          <div>
+            <div class="pizza-name">
+              Margherita
+              <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" />
+            </div>
+            <div class="pizza-desc">Classic pizza named after the Queen Margherita of Savoy. Traditionally made with tomato based sauce & mozzarella.</div>
+          </div>
+          <div class="price">99</div>
+          <div class="cheese-add">+40</div>
+        </div>
+        <div class="pizza-item pizza-item-row">
+          <div>
+            <div class="pizza-name">
+              Golden Harvest Pizza
+              <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" />
+              <span class="kids-special">Kids' Special</span>
+            </div>
+            <div class="pizza-desc">Delicious cheesy twist on the pizza. Sweet corn tossed with cream cheese, mix herbs and topped with mozzarella.</div>
+          </div>
+          <div class="price">109</div>
+          <div class="cheese-add">+40</div>
+        </div>
+        <div class="pizza-item pizza-item-row" style="border: 2px solid #482d06; border-radius: 9px;">
+          <div>
+            <div class="pizza-name">
+              Pizza Di Sicilia
+              <span class="thin-pizza">(World’s Thinnest Pizza)</span>
+              <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" />
+              <span class="must-try">★</span>
+            </div>
+            <div class="pizza-desc">Thin crusted pizza with exotic veggies and punch of red paprika.</div>
+          </div>
+          <div class="price">129’</div>
+          <div class="cheese-add">+40</div>
+        </div>
+        <div class="pizza-item pizza-item-row">
+          <div>
+            <div class="pizza-name">
+              Hot To Hell Pizza
+              <span class="chili">🌶️</span>
+            </div>
+            <div class="pizza-desc">Pizza loaded with spicy sauce, veggies, punch of red paprika and mozzarella cheese.</div>
+          </div>
+          <div class="price">149</div>
+          <div class="cheese-add">+40</div>
+        </div>
+        <div class="pizza-item pizza-item-row">
+          <div>
+            <div class="pizza-name">
+              Veg Exotica Pizza
+              <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" />
+              <span class="best-seller">Best Seller</span>
+            </div>
+            <div class="pizza-desc">Pizza loaded with exotic veggies and Zorko special sauces.</div>
+          </div>
+          <div class="price">159</div>
+          <div class="cheese-add">+40</div>
+        </div>
+        <div class="pizza-item pizza-item-row">
+          <div>
+            <div class="pizza-name">
+              The Xplod <span style="color:#ffb300;">(Cheese Brust)</span>
+            </div>
+            <div class="pizza-desc">Sinful pizza stuffed with liquid cream cheese & topped with veggies.</div>
+          </div>
+          <div class="price">169</div>
+          <div class="cheese-add">+40</div>
+        </div>
+        <div class="pizza-item pizza-item-row">
+          <div>
+            <div class="pizza-name">
+              Paneer Barbeque Pizza
+              <span class="must-try">Must Try</span>
+            </div>
+            <div class="pizza-desc">Cubes of paneer & onion tossed in BBQ sauce, topped on the pizza with mozzarella cheese.</div>
+          </div>
+          <div class="price">169</div>
+          <div class="cheese-add">+40</div>
+        </div>
+        <div class="pizza-item pizza-item-row">
+          <div>
+            <div class="pizza-name">
+              Paneer Maharaja Pizza
+            </div>
+            <div class="pizza-desc">Cubes of paneer marinated with tikka masala covered under the blanket of mozzarella cheese.</div>
+          </div>
+          <div class="price">179</div>
+          <div class="cheese-add">+40</div>
+        </div>
+        <div class="pizza-item pizza-item-row">
+          <div>
+            <div class="pizza-name">
+              Four Cheese Pizza
+              <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" />
+            </div>
+            <div class="pizza-desc">The heaven for cheese lovers. Pizza topped with cream cheese, mozzarella, cheddar & processed cheese.</div>
+          </div>
+          <div class="price">189</div>
+          <div class="cheese-add">+40</div>
+        </div>
+      </div>
+      <div class="bottom-offers">Double Cheese @ 40/- Only</div>
+    </div>
+    <!-- Right: Pizza Images -->
+    <div class="right-panel">
+      <img class="pizza-img-top" src="pizza1.png" alt="Pizza 1" />
+      <img class="pizza-img-bottom" src="pizza2.png" alt="Pizza 2" />
+    </div>
+  </div>
+</body>
+</html>

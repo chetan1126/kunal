@@ -1,11 +1,8 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Burger Menu</title>
+  <title>Wrap's Menu</title>
   <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -96,10 +93,11 @@
     }
     .cheese-add {
       color: #fff;
-      background: #ff5600;
-      border-radius: 6px;
-      padding: 2px 10px;
       font-size: 1.01rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* Removed background, border-radius, and padding for plain text */
     }
     .burger-item-row {
       border-bottom: 1.5px dashed #fff9db;
@@ -113,6 +111,12 @@
     }
     .must-try { font-size: 1.1rem; color: #1fc077; margin-left: 8px;}
     .best-seller { font-size: 1rem; color: #ffa500; margin-left: 8px;}
+    .j-veg {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
     .bottom-offers {
       margin-top: 28px;
       color: #fffbe6;
@@ -123,24 +127,29 @@
       display: inline-block;
       font-weight: bold;
     }
+    /* ==== Improved Right Panel ==== */
     .right-panel {
-      width: 330px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 14px;
       background: #fff2e0;
       border-radius: 24px;
-      padding: 28px 18px 22px 18px;
+      padding: 24px 18px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-      min-height: 500px;
+      min-height: 320px;
+      max-width: 360px;
+      width: fit-content;
+      margin-top: 14px;
     }
     .burger-img {
-      width: 200px;
+      width: 300px;    /* Adjust width to match your image */
+      max-width: 90vw;
+      max-height: 340px;  /* Prevents overflow, adapt as needed */
+      object-fit: cover;
       border-radius: 22px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-      margin-bottom: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
       background: #fff;
+      margin-bottom: 18px;
     }
     .injector-offer {
       margin-top: 8px;
@@ -164,89 +173,79 @@
     /* Responsive */
     @media (max-width: 1100px) {
       .main-flex { flex-direction: column; align-items: center; }
-      .menu-container, .right-panel { width: 95vw; }
+      .menu-container { width: 95vw; }
+      .right-panel {
+        width: 95vw;
+        max-width: 95vw;
+        padding: 20px 4vw;
+        min-height: unset;
+      }
+      .burger-img {
+        width: 85vw;
+        max-width: 400px;
+        max-height: 240px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="main-flex">
-    <!-- Left: Burger List -->
+    <!-- Left: Wrap List -->
     <div class="menu-container">
-      <div class="menu-title">Burger</div>
+      <div class="menu-title">Wrap's</div>
       <div class="burger-list">
         <!-- Header Row -->
         <div class="burger-header">
           <div class="header-cell">Name & Specification</div>
           <div class="header-cell">Price</div>
-          <div class="header-cell">Add Cheese Slice</div>
+          <div class="header-cell">Add Cheese</div>
         </div>
-        <!-- Burger Row 1 -->
+        <!-- Wrap Row 1 -->
         <div class="burger-item burger-item-row">
           <div>
-            <div class="burger-name">Classic Burger</div>
-            <div class="burger-desc">Burger Layered With Vegetable Patty, Veggies & Zorko Special Sauces.</div>
+            <div class="burger-name">
+              Classic Veg Wrap
+              <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" />
+            </div>
+            <div class="burger-desc">Tortilla wrapped with veg patty, fresh veggies, Zorko special sauces loaded with corn, olive, jalapeno & red paprika.</div>
           </div>
-          <div class="price">49</div>
-          <div class="cheese-add">+15</div>
+          <div class="price">109</div>
+          <div class="cheese-add">+30</div>
         </div>
-        <!-- Burger Row 2 -->
+        <!-- Wrap Row 2 -->
         <div class="burger-item burger-item-row">
           <div>
-            <div class="burger-name">Spicy Barbeque Burger <span style="color:#e03a00;">🌶️</span></div>
-            <div class="burger-desc">A Savory & Hearty Juicy Burger Layered With Vegetable Patty, Veggies,</div>
-            <div class="burger-desc">Punch Of BBQ Sauce & Chillies.</div>
+            <div class="burger-name">
+              Mexican Salsa Wrap
+              <span class="must-try">★</span>
+            </div>
+            <div class="burger-desc">Grilled tortilla rolled with fresh tomato salsa, exotic veggies, potato patty, special sauces & crispy nachos.</div>
           </div>
-          <div class="price">69</div>
-          <div class="cheese-add">+15</div>
+          <div class="price">129</div>
+          <div class="cheese-add">+30</div>
         </div>
-        <!-- Burger Row 3 -->
+        <!-- Wrap Row 3 -->
         <div class="burger-item burger-item-row">
           <div>
-            <div class="burger-name">Double Tikki Burger</div>
-            <div class="burger-desc">Burger Elevated With Two Vegetable Patty With Veggies & Creamy Sauces.</div>
+            <div class="burger-name">
+              Grilled Paneer Wrap
+              <span class="best-seller">Best Seller</span>
+              <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" />
+            </div>
+            <div class="burger-desc">Grilled paneer tossed in Zorko exotic sauce accompanied with fresh veggies & spices.</div>
           </div>
-          <div class="price">79</div>
-          <div class="cheese-add">+15</div>
-        </div>
-        <!-- Burger Row 4 -->
-        <div class="burger-item burger-item-row">
-          <div>
-            <div class="burger-name">Spicy Salsa Burger <span style="color:#e03a00;">🌶️</span></div>
-            <div class="burger-desc">A Burger Packed With Vibrant & Zesty Flavors Of In-house Made Salsa Sauce.</div>
-          </div>
-          <div class="price">79</div>
-          <div class="cheese-add">+15</div>
-        </div>
-        <!-- Burger Row 5 -->
-        <div class="burger-item burger-item-row">
-          <div>
-            <div class="burger-name">Mexican King Burger <span class="best-seller">Best Seller</span></div>
-            <div class="burger-desc">The Ultimate Burger Packed With Tsunami Of Flavor & Succulence. It's A Combination Of Patty, Veggies And Zorko Special Sauces. Crowned As Zorko's Best Seller.</div>
-          </div>
-          <div class="price">89</div>
-          <div class="cheese-add">+15</div>
-        </div>
-        <!-- Burger Row 6 -->
-        <div class="burger-item burger-item-row">
-          <div>
-            <div class="burger-name">Royal Paneer Grilled Burger <span class="must-try">Must Try 🟢</span></div>
-            <div class="burger-desc">A Delightful, Flavourful & Creamy Burger Layered With Freshly Grilled Paneer Covered With Zorko Special Sauces & Veggies.</div>
-          </div>
-          <div class="price">139</div>
-          <div class="cheese-add">+15</div>
+          <div class="price">149</div>
+          <div class="cheese-add">+30</div>
         </div>
       </div>
-      <div class="bottom-offers">Double Cheese Slice @ 30/- Only / Grill Any Burger @ 30/- Only</div>
+      <div class="bottom-offers">Double Cheese @ 30/- Only</div>
     </div>
     <!-- Right: Image and Cheese Injector -->
     <div class="right-panel">
-      
-      <!-- Replace the src below with your actual PNG path, e.g. "burger img" if in same folder -->
-      <img class="burger-img" src="burger-img.png" alt="Burger" />
-      <div class="injector-offer">
-        Add<br>CHEESE<br>INJECTOR<br>
-        <div class="injector-price">30/-</div>
-      </div>
+      <!-- Replace the src below with your actual wrap image path -->
+      <img class="burger-img" src="wrap.png" alt="Wrap" />
+      <!-- Example offer (optional) -->
+      <!-- <div class="injector-offer">Try Cheese Injector!</div> -->
     </div>
   </div>
 </body>

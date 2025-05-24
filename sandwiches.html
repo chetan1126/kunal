@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sandwiches Menu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #ffbd5c 0%, #ff9e1b 100%);
+      font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .main-flex {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 28px;
+      max-width: 1200px;
+      margin: 48px auto 0 auto;
+      /* Added a min-height for good vertical alignment */
+      min-height: 80vh;
+    }
+    .menu-container {
+      flex: 1 1 700px;
+      background: #ff9400;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 32px 40px 20px 40px;
+      position: relative;
+      overflow: hidden;
+      min-width: 330px;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+    }
+    .menu-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .menu-title {
+      font-family: 'Chewy', cursive;
+      color: #fff;
+      font-size: 2.7rem;
+      letter-spacing: 2px;
+      background: #ff5600;
+      border-radius: 12px;
+      padding: 8px 26px;
+      box-shadow: 2px 4px 8px rgba(0,0,0,0.11);
+      margin-bottom: 0;
+      display: inline-block;
+    }
+    .add-cheese-label {
+      font-size: 1.08rem;
+      color: #482d06;
+      font-family: 'Chewy', cursive;
+      margin-left: 16px;
+      background: #fff2e6;
+      border-radius: 8px;
+      padding: 4px 12px;
+      font-weight: 700;
+      box-shadow: 1px 2px 8px rgba(0,0,0,0.06);
+    }
+    .section-label {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-weight: 900;
+      color: #fff;
+      font-size: 1.1rem;
+      margin: 18px 0 4px 0;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 2px #b17409c0;
+    }
+    .item-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1.2px dashed #fff9db;
+      padding: 8px 0 4px 0;
+    }
+    .item-row:last-child {
+      border-bottom: none;
+    }
+    .item-details {
+      flex: 2;
+    }
+    .item-name {
+      font-family: 'Roboto', Arial, sans-serif;
+      font-size: 1.33rem;
+      color: #482d06;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 2px;
+    }
+    .item-desc {
+      color: #fffbe6;
+      font-size: 0.97rem;
+      margin-bottom: 2px;
+    }
+    .price, .cheese-add {
+      color: #2d2202;
+      font-size: 1.25rem;
+      font-weight: bold;
+      min-width: 54px;
+      text-align: right;
+      margin-top: 2px;
+    }
+    .cheese-add {
+      color: #fff;
+      background: #ff5600;
+      border-radius: 6px;
+      padding: 2px 10px;
+      font-size: 1.03rem;
+      margin-left: 8px;
+    }
+    .best-seller {
+      font-size: 1rem;
+      color: #ffa500;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .must-try {
+      font-size: 1rem;
+      color: #1fc077;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .kids-special {
+      font-size: 1rem;
+      color: #53e7ff;
+      margin-left: 8px;
+      font-family: 'Chewy', cursive;
+    }
+    .j-veg {
+      width: 18px;
+      height: 18px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .chili {
+      font-size: 1.1rem;
+      color: #e03a00;
+      margin-left: 5px;
+    }
+    .star {
+      color: #ffa500;
+      font-size: 1.1rem;
+      margin-left: 5px;
+    }
+    .hot-cold {
+      font-size: 1.01rem;
+      color: #ff8200;
+      margin-left: 7px;
+      margin-right: 2px;
+      font-family: 'Chewy', cursive;
+    }
+    .right-panel {
+      flex: 0 1 340px;
+      width: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 14px;
+      background: #fff2e0;
+      border-radius: 24px;
+      padding: 28px 18px 22px 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      min-height: 500px;
+      position: relative;
+      gap: 24px;
+    }
+    .sandwich-img-top {
+      width: 210px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+      margin-bottom: 0;
+    }
+    .sandwich-img-bottom {
+      width: 260px;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.13);
+    }
+    /* Responsive Design */
+    @media (max-width: 1100px) {
+      .main-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        min-height: unset;
+      }
+      .menu-container,
+      .right-panel {
+        width: 95vw;
+        min-width: unset;
+        max-width: unset;
+      }
+      .sandwich-img-top,
+      .sandwich-img-bottom {
+        width: 80vw;
+        max-width: 300px;
+      }
+      .right-panel {
+        margin-top: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      .menu-title {
+        font-size: 2rem;
+        padding: 6px 16px;
+      }
+      .add-cheese-label {
+        font-size: 1rem;
+        padding: 4px 8px;
+      }
+      .section-label {
+        font-size: 1rem;
+      }
+      .menu-container,
+      .right-panel {
+        padding: 18px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-flex">
+    <!-- Menu Section -->
+    <div class="menu-container">
+      <div class="menu-header">
+        <div class="menu-title">Sandwiches</div>
+        <div class="add-cheese-label">Add Cheese</div>
+      </div>
+      <div class="section-label">Non-Grilled</div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Bread & Butter <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" /></div>
+          <div class="item-desc">Butter spread over fresh slice of bread & cut into 4 pieces.</div>
+        </div>
+        <div class="price">49 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Classic Vegetable Sandwich <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" /></div>
+          <div class="item-desc">A classical sandwich made by layering assorted vegetables between the bread.</div>
+        </div>
+        <div class="price">89 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Nutella Sandwich <span class="star">★</span></div>
+          <div class="item-desc">Chocolicious delicious sandwich.</div>
+        </div>
+        <div class="price">109 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="section-label">Grilled</div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Veg. Grilled Sandwich</div>
+          <div class="item-desc">Three layered sandwich loaded with veggies and grilled.</div>
+        </div>
+        <div class="price">109 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">
+            Spicy Salsa Grill 
+            <span class="hot-cold">(Hot & Cold)</span>
+            <span class="chili">🌶️</span>
+            <span class="star">★</span>
+          </div>
+          <div class="item-desc">Punch of spicy salsa sauce, balanced with ZORKO special sauce in between of 2 crusty toasted bread.</div>
+        </div>
+        <div class="price">119 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Cheese Chilly Grill <span class="best-seller">Best Seller</span> <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" /></div>
+          <div class="item-desc">Yummy & spicylicious grilled sandwich loaded with capsicum, chillies & cheese.</div>
+        </div>
+        <div class="price">129 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Veg Mexican Sandwich</div>
+          <div class="item-desc">A blend of sauces & vegetables layered with special seasoned masala mashed potato.</div>
+        </div>
+        <div class="price">139 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">American Cheese Sandwich <span class="kids-special">kids special</span> <img class="j-veg" src="https://cdn-icons-png.flaticon.com/512/706/706164.png" alt="Veg" /></div>
+          <div class="item-desc">Simple yet satisfying sandwich, made using liquid cheese, mozzarella & corn.</div>
+        </div>
+        <div class="price">139 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Mumbai Special Sandwich <span class="must-try">Must Try</span></div>
+          <div class="item-desc">Triple decker sandwich loaded with veggies, cheese & special seasoned mashed potato.</div>
+        </div>
+        <div class="price">149 <span class="cheese-add">+30</span></div>
+      </div>
+      <div class="item-row">
+        <div class="item-details">
+          <div class="item-name">Paneer Tikka Sandwich</div>
+          <div class="item-desc">Goodness of paneer marinated with tikka masala, layered with veggies and cheese.</div>
+        </div>
+        <div class="price">149 <span class="cheese-add">+30</span></div>
+      </div>
+    </div>
+    <!-- Right panel with images -->
+    <div class="right-panel">
+      <img class="sandwich-img-top" src="sandwiches.png" alt="Sandwich 1" />
+      <img class="sandwich-img-bottom" src="sandwiches2.png" alt="Sandwich 2" />
+    </div>
+  </div>
+</body>
+</html>
